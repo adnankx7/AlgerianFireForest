@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Algerian Forest Fire Risk</h1>
+
+        <form action="/predict" method="post" id="predictionForm">
+            <label for="Temperature">Temperature:</label>
+            <input type="text" name="Temperature" required>
+            
+            <label for="RH">Relative Humidity (RH):</label>
+            <input type="text" name="RH" required>
+            
+            <label for="Ws">Wind Speed (Ws):</label>
+            <input type="text" name="Ws" required>
+            
+            <label for="Rain">Rain:</label>
+            <input type="text" name="Rain" required>
+            
+            <label for="FFMC">FFMC:</label>
+            <input type="text" name="FFMC" required>
+            
+            <label for="ISI">ISI:</label>
+            <input type="text" name="ISI" required>
+            
+            <label for="BUI">BUI:</label>
+            <input type="text" name="BUI" required>
+            
+            <label for="Classes">Classes (0 or 1):</label>
+            <input type="text" name="Classes" required>
+            
+            <label for="Region">Region (0 or 1):</label>
+            <input type="text" name="Region" required>
+
+            <button type="submit" id="predictBtn">Predict</button>
+        </form>
+
+        <!-- Placeholder for Prediction -->
+        {% if prediction_text %}
+        <h2 id="predictionResult">{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
